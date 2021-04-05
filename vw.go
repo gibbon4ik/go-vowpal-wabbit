@@ -6,7 +6,9 @@ package vw
 
 // #cgo CXXFLAGS: -std=c++11 -I${SRCDIR}/extra -I${SRCDIR} -O3 -Wall -g -Wno-sign-compare -Wno-unused-function  -I/usr/local/include
 // #cgo LDFLAGS: -lstdc++
-// #cgo pkg-config: libvw_c_wrapper libvw RapidJSON
+// #cgo CFLAGS: -I/usr/local/include/vowpalwabbit
+// #cgo darwin LDFLAGS:  -L/usr/local/lib -lvw_c_wrapper -lvw -lallreduce -lboost_program_options -lz -lstdc++
+// #cgo linux LDFLAGS: -L/usr/local/lib /usr/local/lib/libvw_c_wrapper.a /usr/local/lib/libvw_io.a /usr/local/lib/libvw.a /usr/local/lib/liballreduce.a -lboost_program_options -lstdc++ -lm -lz
 // #include <vowpalwabbit/vwdll.h>
 // #include <stdlib.h>
 // #include "lib.hpp"
